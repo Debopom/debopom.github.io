@@ -1,56 +1,236 @@
-<html>
-<title>Debopom Sutradhar</title>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Debopom Sutradhar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Fira Sans', sans-serif;
+      background-color: #ffffff;
+      color: #222;
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    h1 { font-size: 2.5rem; color: #333; }
+    h2 { color: #444; margin-top: 2rem; margin-bottom: 0.5rem; }
+    p, li { font-size: 1rem; line-height: 1.6; }
+    a { color: #007acc; text-decoration: none; }
+    ul { margin-left: 1.5rem; }
+    .links a { margin-right: 1rem; }
 
-body {
-  background-image: url('https://cdn.pixabay.com/photo/2015/01/31/05/05/background-618226_960_720.png');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333333;
-}
+    .publication-card {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      display: flex;
+      gap: 1rem;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+    .publication-card img {
+      width: 200px;
+      min-width: 150px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .publication-info { flex: 1; min-width: 250px; }
+    .publication-info h3 { margin-top: 0; }
+    @media (max-width: 768px) {
+      .publication-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .publication-card img {
+        width: 80%;
+        max-width: 300px;
+      }
+      .publication-info {
+        text-align: left;
+        width: 100%;
+      }
+    }
 
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 60px;
-  text-decoration: none;
-  }
-
-li a:hover {
-  background-color: #111111;
-}
-</style>
+    .abstract-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 600px;
+      max-width: 90%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+      line-height: 1.6;
+    }
+    .abstract-popup h4 { margin-bottom: 1rem; }
+    .abstract-popup img {
+      margin-top: 1rem;
+      width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .abstract-popup-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: #666;
+    }
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+  </style>
 </head>
+
 <body>
 
-
-<ul>
-  <li><a href="/Project/parents info.html">Parents Information</a></li>
-  <li><a href="/Project/education qaualification.html">Education Qualifications</a></li>
-  <li><a href="/Project/future plan.html">Future Plan</a></li>
-  <li><a href="/Project/achievements.html">Achievements</a></li>
-  <li><a href="/Project/hobbies.html">Hobbies</a></li>
-</ul><br><br><br>
-  
-  
-  <div align="center">
-    
-    <img src="IMG_2683.jpg" width="400" height="300">
-      <p style="color:Black;font-size:60px;align:centre;">Debopom Sutradhar</p>  
-  
+<header>
+  <img src="images/profile.jpg" alt="Debopom Sutradhar" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover;">
+  <div>
+    <h1>Debopom Sutradhar</h1>
+    <p>📍 Dhaka, Bangladesh</p>
+    <p>📧 <a href="mailto:debopomsdhar@gmail.com">debopomsdhar@gmail.com</a> | ☎️ +8801745349896</p>
+    <div class="links">
+      🔗 <a href="https://www.linkedin.com/in/debopom-sutradhar-748496232/">LinkedIn</a>
+      🎓 <a href="https://scholar.google.com/citations?user=HDKjT0kAAAAJ&hl=en">Google Scholar</a>
+      💻 <a href="https://github.com/Debopom">GitHub</a>
+    </div>
   </div>
- 
+</header>
+
+<section>
+  <h2>Research Interests</h2>
+  <p>Focused on computer vision, machine learning, and real-world systems. My interests include scalable AI, efficient deep learning, and visual intelligence in healthcare, sports analytics, and satellite imagery.</p>
+</section>
+
+<section>
+  <h2>Education</h2>
+  <p><strong>B.Sc. in Computer Science and Engineering</strong><br>
+  United International University, 2020–2024<br>
+  CGPA: 3.66 / 4.00<br>
+  Thesis: A Computer Vision Approach for Illegal Bowling Action Detection in Cricket<br>
+  Supervisor: Prof. Swakkhar Shatabda</p>
+</section>
+
+<section>
+  <h2>Experience</h2>
+  <ul>
+    <li><strong>Graduate Researcher</strong> – AI Lab under Prof. Sami Azam (Aug 2023 – Present)</li>
+    <li><strong>AI Engineer (Remote)</strong> – EraVend GmBh&Co. (Aug 2024 – June 2025)</li>
+    <li><strong>Research Assistant</strong> – United International University (May 2025 – Present)</li>
+    <li><strong>Software Engineering Intern</strong> – FinAccess Ltd. (May 2024 – Aug 2024)</li>
+    <li><strong>Undergraduate Assistant</strong> – United International University (Oct 2023 – Dec 2023)</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Publications</h2>
+
+  <div class="publication-card">
+    <img src="images/Spine.png" alt="Spine Publication">
+    <div class="publication-info">
+      <h3>Cervical spine fracture detection utilizing YOLOv8 and deep attention-based vertebrae classification ensuring XAI</h3>
+      <p><strong>Debopom Sutradhar</strong>, Nur Mohammad Fahad, Mohaimenul Azam Khan Raiaan, Mirjam Jonkman, Sami Azam</p>
+      <p><a href="https://doi.org/10.xxxx/abc123" target="_blank">🔗 Biomedical Signal Processing & Control (Elsevier)</a></p>
+      <div style="margin-top: 0.5rem;">
+        <a href="#" onclick="showAbstract('abstract1')">📝 Abstract</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="publication-card">
+    <img src="images/IotFI.jpg" alt="IoT Publication">
+    <div class="publication-info">
+      <h3>IoT-Based Object-Detection System to Safeguard Endangered Animals and Bolster Agricultural Farm Security</h3>
+      <p>Mohaimenul Azam Khan Raiaan, Nur Mohammad Fahad, Shovan Chowdhury, <strong>Debopom Sutradhar</strong>, Saadman Sakib Mihad, Md Motaharul Islam</p>
+      <p><a href="https://www.mdpi.com/1999-5903/15/12/372" target="_blank">🔗 Future Internet (MDPI)</a></p>
+      <div style="margin-top: 0.5rem;">
+        <a href="#" onclick="showAbstract('abstract2')">📝 Abstract</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Under Review</h2>
+  <ul>
+    <li><strong>A Source-Free Approach for Domain Adaptation via Multiview Image Transformation and Latent Space Consistency</strong><br>
+      📄 Submitted to: <em>IEEE Transactions on Image Processing</em> (Q1, IF: 13.7) 👤 <strong>Joint First Author</strong></li>
+    <li><strong>Lightweight Encoder-based Satellite Imagery Change Prediction</strong><br>📄 Submitted to:</li>
+    <li><strong>Illegal Bowling Action Detection in Cricket</strong><br>📄 Submitted to:</li>
+    <li><strong>Low Dose CT Denoising via Reinforcement Learning</strong><br>
+      📄 Submitted to: <em>Information Sciences (Elsevier)</em> (Q1, IF: 6.8) 👤 <strong>First Author</strong></li>
+  </ul>
+</section>
+
+<section>
+  <h2>Achievements</h2>
+  <ul>
+    <li>🥈 1st Runner-Up – UIU Project Showcase, Spring 2022</li>
+    <li>🥉 2nd Runner-Up – UIU Deep Learning Sprint, Fall 2022</li>
+    <li>🏅 Final Round – Techkriti 2023, IIT Kanpur</li>
+  </ul>
+</section>
+
+<div id="overlay"></div>
+
+<div id="abstract1" class="abstract-popup">
+  <span class="abstract-popup-close" onclick="hideAbstract('abstract1')">×</span>
+  <h4>Abstract</h4>
+  <p>Fractures, especially in the cervical spine, pose significant challenges for diagnosis and treatment. As the incidence of these injuries rises and traditional diagnostic methods have limitations, there is an urgent need for more efficient and accurate detection techniques. This study addresses these challenges by proposing a comprehensive approach to automate fracture detection and classification of cervical spine injuries from CT scans. We have combined object detection models and a novel attention mechanism-based Convolutional Neural Network (CNN) titled (VertNet-10) to detect cervical spinal fractures and classify vertebrae from axial plane CT images. Our methodology involves refining the YOLOv8 object detection model and proposing a deep CNN model with attention blocks. Our modified YOLOv8 achieved a Mean Average Precision (mAP) of 93 % in fracture detection, outperforming existing models. The CNN model achieved an accuracy of 99.55 % in classifying cervical vertebrae, with 100 % accuracy for some vertebrae. Furthermore, we successfully generated activation maps to explain the model’s classification process, enhancing model explainability. By combining these two modules, our proposed approach offers a promising solution for automating fracture detection and cervical vertebrae classification. Integrating advanced imaging algorithms and attention mechanisms significantly improves diagnostic precision and efficiency. This study emphasizes the potential of AI-driven systems in augmenting radiological diagnosis and ultimately improving patient care in cervical spine injuries.</p>
+  <img src="images/Spine.png" alt="Spine Architecture Diagram">
+</div>
+
+<div id="abstract2" class="abstract-popup">
+  <span class="abstract-popup-close" onclick="hideAbstract('abstract2')">×</span>
+  <h4>Abstract</h4>
+  <p>Significant threats to ecological equilibrium and sustainable agriculture are posed by the extinction of animal species and the subsequent effects on farms. Farmers face difficult decisions, such as installing electric fences to protect their farms, although these measures can harm animals essential for maintaining ecological equilibrium. To tackle these essential issues, our research introduces an innovative solution in the form of an object-detection system. In this research, we designed and implemented a system that leverages the ESP32-CAM platform in conjunction with the YOLOv8 object-detection model. Our proposed system aims to identify endangered species and harmful animals within farming environments, providing real-time alerts to farmers and endangered wildlife by integrating a cloud-based alert system. To train the YOLOv8 model effectively, we meticulously compiled diverse image datasets featuring these animals in agricultural settings, subsequently annotating them. After that, we tuned the hyperparameter of the YOLOv8 model to enhance the performance of the model. The results from our optimized YOLOv8 model are auspicious. It achieves a remarkable mean average precision (mAP) of 92.44% and an impressive sensitivity rate of 96.65% on an unseen test dataset, firmly establishing its efficacy. After achieving an optimal result, we employed the model in our IoT system and when the system detects the presence of these animals, it immediately activates an audible buzzer. Additionally, a cloud-based system was utilized to notify neighboring farmers effectively and alert animals to potential danger. This research’s significance lies in its potential to drive the conservation of endangered species while simultaneously mitigating the agricultural damage inflicted by these animals.</p>
+  <img src="images/IotFI.jpg" alt="IoT System Diagram">
+</div>
+
+<script>
+function showAbstract(id) {
+  document.getElementById('overlay').style.display = 'block';
+  document.getElementById(id).style.display = 'block';
+}
+function hideAbstract(id) {
+  document.getElementById('overlay').style.display = 'none';
+  document.getElementById(id).style.display = 'none';
+}
+document.getElementById('overlay').onclick = function () {
+  hideAbstract('abstract1');
+  hideAbstract('abstract2');
+};
+</script>
+
+<footer>&copy; 2025 Debopom Sutradhar. All rights reserved.</footer>
 </body>
 </html>
