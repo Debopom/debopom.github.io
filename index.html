@@ -1,235 +1,578 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Debopom Sutradhar</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Fira Sans', sans-serif;
-      background-color: #ffffff;
-      color: #222;
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    header {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    h1 { font-size: 2.5rem; color: #333; }
-    h2 { color: #444; margin-top: 2rem; margin-bottom: 0.5rem; }
-    p, li { font-size: 1rem; line-height: 1.6; }
-    a { color: #007acc; text-decoration: none; }
-    ul { margin-left: 1.5rem; }
-    .links a { margin-right: 1rem; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debopom Sutradhar | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-main: #1f2937;
+            --text-secondary: #4b5563;
+            --accent-color: #2563eb;
+            --accent-hover: #1d4ed8;
+            --card-bg: #ffffff;
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+        }
 
-    .publication-card {
-      border: 1px solid #ddd;
-      padding: 1rem;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
-      display: flex;
-      gap: 1rem;
-      width: 100%;
-      flex-wrap: wrap;
-    }
-    .publication-card img {
-      width: 200px;
-      min-width: 150px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      flex-shrink: 0;
-    }
-    .publication-info { flex: 1; min-width: 250px; }
-    .publication-info h3 { margin-top: 0; }
-    @media (max-width: 768px) {
-      .publication-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      .publication-card img {
-        width: 80%;
-        max-width: 300px;
-      }
-      .publication-info {
-        text-align: left;
-        width: 100%;
-      }
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .abstract-popup {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 600px;
-      max-width: 90%;
-      transform: translate(-50%, -50%);
-      background: white;
-      padding: 2rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      z-index: 1000;
-      line-height: 1.6;
-    }
-    .abstract-popup h4 { margin-bottom: 1rem; }
-    .abstract-popup img {
-      margin-top: 1rem;
-      width: 100%;
-      height: auto;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    .abstract-popup-close {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      cursor: pointer;
-      font-size: 1.2rem;
-      color: #666;
-    }
-    #overlay {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 999;
-    }
-    footer {
-      margin-top: 3rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-  </style>
+        body {
+            font-family: 'Fira Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Header / Hero */
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 0 3rem;
+            background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 3rem;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: var(--radius-full);
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .social-btn {
+            padding: 0.5rem 1.25rem;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-btn:hover {
+            background: var(--bg-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            color: var(--accent-color);
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            color: #111827;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .list-styled {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .list-styled li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .list-styled li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card img {
+            width: 220px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
+        .card-content {
+            flex: 1;
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: #111827;
+            font-weight: 600;
+        }
+
+        .card-meta {
+            font-size: 0.9rem;
+            color: #6b7280;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-authors {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .btn-link {
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .card {
+                flex-direction: column;
+            }
+
+            .card img {
+                width: 100%;
+                height: auto;
+                max-height: 250px;
+            }
+
+            header {
+                padding: 2rem 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: #f3f4f6;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #4b5563;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .close-btn:hover {
+            background: #e5e7eb;
+            color: #111827;
+        }
+
+        .modal h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #111827;
+        }
+
+        .modal img {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 0;
+            color: #9ca3af;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+            background-color: white;
+        }
+    </style>
 </head>
 
 <body>
 
-<header>
-  <img src="images/profile.jpg" alt="Debopom Sutradhar" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover;">
-  <div>
-    <h1>Debopom Sutradhar</h1>
-    <p>📍 Dhaka, Bangladesh</p>
-    <p>📧 <a href="mailto:debopomsdhar@gmail.com">debopomsdhar@gmail.com</a> | ☎️ +8801745349896</p>
-    <div class="links">
-      🔗 <a href="https://www.linkedin.com/in/debopom-sutradhar-748496232/">LinkedIn</a>
-      🎓 <a href="https://scholar.google.com/citations?user=HDKjT0kAAAAJ&hl=en">Google Scholar</a>
-      💻 <a href="https://github.com/Debopom">GitHub</a>
+    <header>
+        <div class="container">
+            <img src="images/profile.jpg" alt="Debopom Sutradhar" class="profile-img">
+            <h1>Debopom Sutradhar</h1>
+            <p class="subtitle">📍 Dhaka, Bangladesh</p>
+
+            <div class="contact-info">
+                <span>📧 <a href="mailto:dsutradhar201046@bscse.uiu.ac.bd">debopomsdhar@gmail.com</a></span>
+                <span>|</span>
+                <span>☎️ +8801745349896</span>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/debopom-sutradhar-748496232/" class="social-btn">🔗 LinkedIn</a>
+                <a href="https://scholar.google.com/citations?user=HDKjT0kAAAAJ&hl=en" class="social-btn">🎓 Google
+                    Scholar</a>
+                <a href="https://github.com/Debopom" class="social-btn">💻 GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section>
+            <h2 class="section-title">Research Interests</h2>
+            <p>Focused on computer vision, machine learning, and real-world systems. My interests include scalable AI,
+                efficient deep learning, and visual intelligence in healthcare, sports analytics, and satellite imagery.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="section-title">Education</h2>
+            <div class="card" style="display: block;">
+                <h3 style="margin-bottom: 0.25rem;">B.Sc. in Computer Science and Engineering</h3>
+                <p style="color: var(--accent-color); font-weight: 500; margin-bottom: 0.5rem;">United International
+                    University, 2020–2024</p>
+                <p><strong>Thesis:</strong> A Computer Vision Approach for Illegal Bowling Action Detection in Cricket
+                </p>
+                <p style="margin-bottom: 0;"><strong>Supervisor:</strong> Prof. Swakkhar Shatabda</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Experience</h2>
+            <ul class="list-styled">
+                <li><strong>Graduate Researcher</strong> – AI Lab under Prof. Sami Azam (Aug 2023 – Present)</li>
+                <li><strong>AI Engineer (Remote)</strong> – EraVend GmBh&Co. (Aug 2024 – June 2025)</li>
+                <li><strong>Research Assistant</strong> – United International University (May 2025 – Present)</li>
+                <li><strong>Software Engineering Intern</strong> – FinAccess Ltd. (May 2024 – Aug 2024)</li>
+                <li><strong>Undergraduate Assistant</strong> – United International University (Oct 2023 – Dec 2023)
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="section-title">Publications</h2>
+
+            <div class="card">
+                <img src="images/Spine.png" alt="Spine Publication">
+                <div class="card-content">
+                    <h3>Cervical spine fracture detection utilizing YOLOv8 and deep attention-based vertebrae
+                        classification ensuring XAI</h3>
+                    <p class="card-authors"><strong>Debopom Sutradhar</strong>, Nur Mohammad Fahad, Mohaimenul Azam Khan
+                        Raiaan, Mirjam Jonkman, Sami Azam</p>
+                    <p class="card-meta">Published in <strong>Biomedical Signal Processing & Control (Elsevier)</strong>
+                    </p>
+                    <a href="https://doi.org/10.xxxx/abc123" target="_blank" class="btn-link">🔗 Read Paper</a>
+                    <span style="margin: 0 0.5rem; color: #ddd;">|</span>
+                    <a href="#" onclick="showAbstract('abstract1'); return false;" class="btn-link">📝 View Abstract</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="images/IotFI.jpg" alt="IoT Publication">
+                <div class="card-content">
+                    <h3>IoT-Based Object-Detection System to Safeguard Endangered Animals and Bolster Agricultural Farm
+                        Security</h3>
+                    <p class="card-authors">Mohaimenul Azam Khan Raiaan, Nur Mohammad Fahad, Shovan Chowdhury,
+                        <strong>Debopom Sutradhar</strong>, Saadman Sakib Mihad, Md Motaharul Islam</p>
+                    <p class="card-meta">Published in <strong>Future Internet (MDPI)</strong></p>
+                    <a href="https://www.mdpi.com/1999-5903/15/12/372" target="_blank" class="btn-link">🔗 Read
+                        Paper</a>
+                    <span style="margin: 0 0.5rem; color: #ddd;">|</span>
+                    <a href="#" onclick="showAbstract('abstract2'); return false;" class="btn-link">📝 View Abstract</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">Under Review</h2>
+            <ul class="list-styled" style="font-size: 0.95rem;">
+                <li>
+                    <strong>A source-free approach for domain adaptation via multiview image transformation and latent
+                        space consistency</strong><br>
+                    <span style="color: var(--text-secondary);"><strong>Sutradhar, D.</strong>, Rahman, M. A., Raiaan,
+                        M. A. K., & Azam, S.</span><br>
+                    <span style="color: var(--accent-color);">Under Review (IEEE Transactions on Image
+                        Processing)</span>
+                </li>
+                <li>
+                    <strong>PPORLD-EDNetLDCT: A Proximal Policy Optimization-Based Reinforcement Learning Framework for
+                        Adaptive Low-Dose CT Denoising</strong><br>
+                    <span style="color: var(--text-secondary);"><strong>Sutradhar, D.</strong>, Debnath, R. K., Raiaan,
+                        M. A. K., Zhang, Y., Mohamed, R. E., & Azam, S. (2025)</span><br>
+                    <span style="color: var(--text-secondary);">arXiv preprint <a
+                            href="https://arxiv.org/abs/2509.03185" target="_blank">arXiv:2509.03185</a></span> • <span
+                        style="color: var(--accent-color);">Under Review (Advanced Intelligent Systems, Wiley)</span>
+                </li>
+                <li>
+                    <strong>CLAIRE: A Dual Encoder Network with RIFT Loss and Phi-3 Small Language Model Based
+                        Interpretability for Cross-Modality Synthetic Aperture Radar and Optical Land Cover
+                        Segmentation</strong><br>
+                    <span style="color: var(--text-secondary);"><strong>Sutradhar, D.</strong>, Abian, A. I., Raiaan, M.
+                        A. K., Mohamed, R. E., Azid, S. I., & Azam, S. (2025)</span><br>
+                    <span style="color: var(--text-secondary);">arXiv preprint <a
+                            href="https://arxiv.org/abs/2509.11952" target="_blank">arXiv:2509.11952</a></span> • <span
+                        style="color: var(--accent-color);">Under Review (ISPRS Journal of Photogrammetry and Remote
+                        Sensing, Elsevier)</span>
+                </li>
+                <li>
+                    <strong>BioAutoML-NAS: An End-to-End AutoML Framework for Multimodal Insect Classification via
+                        Neural Architecture Search on Large-Scale Biodiversity Data</strong><br>
+                    <span style="color: var(--text-secondary);">Abian, A. I., <strong>Sutradhar, D.</strong>, Rashid, M.
+                        R. U., Mohamed, R. E., Islam, M. R., Karim, A., Azam, S. (2025)</span><br>
+                    <span style="color: var(--text-secondary);">arXiv preprint <a
+                            href="https://arxiv.org/abs/2510.05888" target="_blank">arXiv:2510.05888</a></span> • <span
+                        style="color: var(--accent-color);">Under Review (IEEE Transactions on Big Data)</span>
+                </li>
+                <li>
+                    <strong>CADE: A lightweight change-adaptive dual-path encoder framework for predicting and
+                        generating future changes in satellite imagery using semi-supervised learning</strong><br>
+                    <span style="color: var(--text-secondary);"><strong>Sutradhar, D.</strong>, Rahman, M. A., Mannan,
+                        Z. I., Azid, S. I., Jonkman, M., & Azam, S.</span><br>
+                    <span style="color: var(--accent-color);">Under Review (Neural Computing and Applications)</span>
+                </li>
+                <li>
+                    <strong>A computer vision approach for illegal bowling action detection in cricket</strong><br>
+                    <span style="color: var(--text-secondary);"><strong>Sutradhar, D.</strong>, Islam, N., Mondal, S.,
+                        Jamim, T. H., Shufol, J. M., & Shatabda, S.</span><br>
+                    <span style="color: var(--accent-color);">Under Review (Image and Video Processing, Springer)</span>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="section-title">Achievements</h2>
+            <ul class="list-styled">
+                <li>🥈 1st Runner-Up – UIU Project Showcase, Spring 2022</li>
+                <li>🥉 2nd Runner-Up – UIU Deep Learning Sprint, Fall 2022</li>
+                <li>🏅 Final Round – Techkriti 2023, IIT Kanpur</li>
+            </ul>
+        </section>
+
     </div>
-  </div>
-</header>
 
-<section>
-  <h2>Research Interests</h2>
-  <p>Focused on computer vision, machine learning, and real-world systems. My interests include scalable AI, efficient deep learning, and visual intelligence in healthcare, sports analytics, and satellite imagery.</p>
-</section>
+    <footer>
+        &copy; 2025 Debopom Sutradhar. All rights reserved.
+    </footer>
 
-<section>
-  <h2>Education</h2>
-  <p><strong>B.Sc. in Computer Science and Engineering</strong><br>
-  United International University, 2020–2024<br>
-  Thesis: A Computer Vision Approach for Illegal Bowling Action Detection in Cricket<br>
-  Supervisor: Prof. Swakkhar Shatabda</p>
-</section>
+    <!-- Modals -->
+    <div id="overlay" class="modal-overlay" onclick="hideAllAbstracts()"></div>
 
-<section>
-  <h2>Experience</h2>
-  <ul>
-    <li><strong>Graduate Researcher</strong> – AI Lab under Prof. Sami Azam (Aug 2023 – Present)</li>
-    <li><strong>AI Engineer (Remote)</strong> – EraVend GmBh&Co. (Aug 2024 – June 2025)</li>
-    <li><strong>Research Assistant</strong> – United International University (May 2025 – Present)</li>
-    <li><strong>Software Engineering Intern</strong> – FinAccess Ltd. (May 2024 – Aug 2024)</li>
-    <li><strong>Undergraduate Assistant</strong> – United International University (Oct 2023 – Dec 2023)</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Publications</h2>
-
-  <div class="publication-card">
-    <img src="images/Spine.png" alt="Spine Publication">
-    <div class="publication-info">
-      <h3>Cervical spine fracture detection utilizing YOLOv8 and deep attention-based vertebrae classification ensuring XAI</h3>
-      <p><strong>Debopom Sutradhar</strong>, Nur Mohammad Fahad, Mohaimenul Azam Khan Raiaan, Mirjam Jonkman, Sami Azam</p>
-      <p><a href="https://doi.org/10.xxxx/abc123" target="_blank">🔗 Biomedical Signal Processing & Control (Elsevier)</a></p>
-      <div style="margin-top: 0.5rem;">
-        <a href="#" onclick="showAbstract('abstract1')">📝 Abstract</a>
-      </div>
+    <div id="abstract1" class="modal-overlay">
+        <div class="modal">
+            <button class="close-btn" onclick="hideAbstract('abstract1')">×</button>
+            <h4>Abstract</h4>
+            <p>Fractures, especially in the cervical spine, pose significant challenges for diagnosis and treatment. As
+                the incidence of these injuries rises and traditional diagnostic methods have limitations, there is an
+                urgent need for more efficient and accurate detection techniques. This study addresses these challenges
+                by proposing a comprehensive approach to automate fracture detection and classification of cervical
+                spine injuries from CT scans. We have combined object detection models and a novel attention
+                mechanism-based Convolutional Neural Network (CNN) titled (VertNet-10) to detect cervical spinal
+                fractures and classify vertebrae from axial plane CT images. Our methodology involves refining the
+                YOLOv8 object detection model and proposing a deep CNN model with attention blocks. Our modified YOLOv8
+                achieved a Mean Average Precision (mAP) of 93 % in fracture detection, outperforming existing models.
+                The CNN model achieved an accuracy of 99.55 % in classifying cervical vertebrae, with 100 % accuracy for
+                some vertebrae. Furthermore, we successfully generated activation maps to explain the model’s
+                classification process, enhancing model explainability. By combining these two modules, our proposed
+                approach offers a promising solution for automating fracture detection and cervical vertebrae
+                classification. Integrating advanced imaging algorithms and attention mechanisms significantly improves
+                diagnostic precision and efficiency. This study emphasizes the potential of AI-driven systems in
+                augmenting radiological diagnosis and ultimately improving patient care in cervical spine injuries.</p>
+            <img src="images/Spine.png" alt="Spine Architecture Diagram">
+        </div>
     </div>
-  </div>
 
-  <div class="publication-card">
-    <img src="images/IotFI.jpg" alt="IoT Publication">
-    <div class="publication-info">
-      <h3>IoT-Based Object-Detection System to Safeguard Endangered Animals and Bolster Agricultural Farm Security</h3>
-      <p>Mohaimenul Azam Khan Raiaan, Nur Mohammad Fahad, Shovan Chowdhury, <strong>Debopom Sutradhar</strong>, Saadman Sakib Mihad, Md Motaharul Islam</p>
-      <p><a href="https://www.mdpi.com/1999-5903/15/12/372" target="_blank">🔗 Future Internet (MDPI)</a></p>
-      <div style="margin-top: 0.5rem;">
-        <a href="#" onclick="showAbstract('abstract2')">📝 Abstract</a>
-      </div>
+    <div id="abstract2" class="modal-overlay">
+        <div class="modal">
+            <button class="close-btn" onclick="hideAbstract('abstract2')">×</button>
+            <h4>Abstract</h4>
+            <p>Significant threats to ecological equilibrium and sustainable agriculture are posed by the extinction of
+                animal species and the subsequent effects on farms. Farmers face difficult decisions, such as installing
+                electric fences to protect their farms, although these measures can harm animals essential for
+                maintaining ecological equilibrium. To tackle these essential issues, our research introduces an
+                innovative solution in the form of an object-detection system. In this research, we designed and
+                implemented a system that leverages the ESP32-CAM platform in conjunction with the YOLOv8
+                object-detection model. Our proposed system aims to identify endangered species and harmful animals
+                within farming environments, providing real-time alerts to farmers and endangered wildlife by
+                integrating a cloud-based alert system. To train the YOLOv8 model effectively, we meticulously compiled
+                diverse image datasets featuring these animals in agricultural settings, subsequently annotating them.
+                After that, we tuned the hyperparameter of the YOLOv8 model to enhance the performance of the model. The
+                results from our optimized YOLOv8 model are auspicious. It achieves a remarkable mean average precision
+                (mAP) of 92.44% and an impressive sensitivity rate of 96.65% on an unseen test dataset, firmly
+                establishing its efficacy. After achieving an optimal result, we employed the model in our IoT system
+                and when the system detects the presence of these animals, it immediately activates an audible buzzer.
+                Additionally, a cloud-based system was utilized to notify neighboring farmers effectively and alert
+                animals to potential danger. This research’s significance lies in its potential to drive the
+                conservation of endangered species while simultaneously mitigating the agricultural damage inflicted by
+                these animals.</p>
+            <img src="images/IotFI.jpg" alt="IoT System Diagram">
+        </div>
     </div>
-  </div>
-</section>
 
-<section>
-  <h2>Under Review</h2>
-  <ul>
-    <li><strong>A Source-Free Approach for Domain Adaptation via Multiview Image Transformation and Latent Space Consistency</strong><br>
-      📄 Submitted to: <em>IEEE Transactions on Image Processing</em> (Q1, IF: 13.7) 👤 <strong>Joint First Author</strong></li>
-    <li><strong>Lightweight Encoder-based Satellite Imagery Change Prediction</strong><br>📄 Submitted to:</li>
-    <li><strong>Illegal Bowling Action Detection in Cricket</strong><br>📄 Submitted to:</li>
-    <li><strong>Low Dose CT Denoising via Reinforcement Learning</strong><br>
-      📄 Submitted to: <em>Information Sciences (Elsevier)</em> (Q1, IF: 6.8) 👤 <strong>First Author</strong></li>
-  </ul>
-</section>
+    <script>
+        function showAbstract(id) {
+            const modal = document.getElementById(id);
+            modal.style.display = 'flex';
+        }
 
-<section>
-  <h2>Achievements</h2>
-  <ul>
-    <li>🥈 1st Runner-Up – UIU Project Showcase, Spring 2022</li>
-    <li>🥉 2nd Runner-Up – UIU Deep Learning Sprint, Fall 2022</li>
-    <li>🏅 Final Round – Techkriti 2023, IIT Kanpur</li>
-  </ul>
-</section>
+        function hideAbstract(id) {
+            const modal = document.getElementById(id);
+            modal.style.display = 'none';
+        }
 
-<div id="overlay"></div>
+        // Close modal when clicking outside content
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', function (e) {
+                if (e.target === this) {
+                    this.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
-<div id="abstract1" class="abstract-popup">
-  <span class="abstract-popup-close" onclick="hideAbstract('abstract1')">×</span>
-  <h4>Abstract</h4>
-  <p>Fractures, especially in the cervical spine, pose significant challenges for diagnosis and treatment. As the incidence of these injuries rises and traditional diagnostic methods have limitations, there is an urgent need for more efficient and accurate detection techniques. This study addresses these challenges by proposing a comprehensive approach to automate fracture detection and classification of cervical spine injuries from CT scans. We have combined object detection models and a novel attention mechanism-based Convolutional Neural Network (CNN) titled (VertNet-10) to detect cervical spinal fractures and classify vertebrae from axial plane CT images. Our methodology involves refining the YOLOv8 object detection model and proposing a deep CNN model with attention blocks. Our modified YOLOv8 achieved a Mean Average Precision (mAP) of 93 % in fracture detection, outperforming existing models. The CNN model achieved an accuracy of 99.55 % in classifying cervical vertebrae, with 100 % accuracy for some vertebrae. Furthermore, we successfully generated activation maps to explain the model’s classification process, enhancing model explainability. By combining these two modules, our proposed approach offers a promising solution for automating fracture detection and cervical vertebrae classification. Integrating advanced imaging algorithms and attention mechanisms significantly improves diagnostic precision and efficiency. This study emphasizes the potential of AI-driven systems in augmenting radiological diagnosis and ultimately improving patient care in cervical spine injuries.</p>
-  <img src="images/Spine.png" alt="Spine Architecture Diagram">
-</div>
-
-<div id="abstract2" class="abstract-popup">
-  <span class="abstract-popup-close" onclick="hideAbstract('abstract2')">×</span>
-  <h4>Abstract</h4>
-  <p>Significant threats to ecological equilibrium and sustainable agriculture are posed by the extinction of animal species and the subsequent effects on farms. Farmers face difficult decisions, such as installing electric fences to protect their farms, although these measures can harm animals essential for maintaining ecological equilibrium. To tackle these essential issues, our research introduces an innovative solution in the form of an object-detection system. In this research, we designed and implemented a system that leverages the ESP32-CAM platform in conjunction with the YOLOv8 object-detection model. Our proposed system aims to identify endangered species and harmful animals within farming environments, providing real-time alerts to farmers and endangered wildlife by integrating a cloud-based alert system. To train the YOLOv8 model effectively, we meticulously compiled diverse image datasets featuring these animals in agricultural settings, subsequently annotating them. After that, we tuned the hyperparameter of the YOLOv8 model to enhance the performance of the model. The results from our optimized YOLOv8 model are auspicious. It achieves a remarkable mean average precision (mAP) of 92.44% and an impressive sensitivity rate of 96.65% on an unseen test dataset, firmly establishing its efficacy. After achieving an optimal result, we employed the model in our IoT system and when the system detects the presence of these animals, it immediately activates an audible buzzer. Additionally, a cloud-based system was utilized to notify neighboring farmers effectively and alert animals to potential danger. This research’s significance lies in its potential to drive the conservation of endangered species while simultaneously mitigating the agricultural damage inflicted by these animals.</p>
-  <img src="images/IotFI.jpg" alt="IoT System Diagram">
-</div>
-
-<script>
-function showAbstract(id) {
-  document.getElementById('overlay').style.display = 'block';
-  document.getElementById(id).style.display = 'block';
-}
-function hideAbstract(id) {
-  document.getElementById('overlay').style.display = 'none';
-  document.getElementById(id).style.display = 'none';
-}
-document.getElementById('overlay').onclick = function () {
-  hideAbstract('abstract1');
-  hideAbstract('abstract2');
-};
-</script>
-
-<footer>&copy; 2025 Debopom Sutradhar. All rights reserved.</footer>
 </body>
+
 </html>
